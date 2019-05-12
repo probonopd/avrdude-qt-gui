@@ -20,6 +20,8 @@ script:
   - mkdir -p ./appdir/usr/bin ; cp ./bin/qavrdude ./appdir/usr/bin/ # FIXME
   - mkdir -p ./appdir/usr/share/applications ; cp qavrdude.desktop ./appdir/usr/share/applications # FIXME
   - mkdir -p ./appdir/usr/share/icons/hicolor/scalable/apps ; touch ./appdir/usr/share/icons/hicolor/scalable/apps/qavrdude.svg # FIXME
+  - find . -name devicedb.sqlite
+  - mkdir -p ./appdir/usr/share/qavrdude ; cp devicedb.sqlite ./appdir/usr/share/qavrdude/
   - ( cd ./appdir / ; apt-get download avrdude ; dpkg-deb -x avrdude*.deb . ; rm avrdude*deb )
   - find ./appdir/
   - wget -c -nv "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
