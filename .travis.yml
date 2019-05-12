@@ -8,7 +8,7 @@ before_install:
   - sudo apt-get update -qq
 
 install:
-  - sudo apt-get -y install qt59base libftdi1 libmesa-dev
+  - sudo apt-get -y install qt59base libftdi1
   - source /opt/qt*/bin/qt*-env.sh
 
 script:
