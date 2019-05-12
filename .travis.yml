@@ -17,7 +17,7 @@ script:
   - make -j$(nproc)
   - find . -type f -executable
   # make INSTALL_ROOT=appdir -j$(nproc) install ; find appdir/ # Needs to be made work instead of the following lines
-  - mkdir -p ./appdir/usr/bin ; cp qavrdude ./appdir/usr/bin/ # FIXME
+  - mkdir -p ./appdir/usr/bin ; cp ./bin/qavrdude ./appdir/usr/bin/ # FIXME
   - mkdir -p ./appdir/usr/share/applications ; cp qavrdude.desktop ./appdir/usr/share/applications # FIXME
   - mkdir -p ./appdir/usr/share/icons/hicolor/scalable/apps ; touch ./appdir/usr/share/icons/hicolor/scalable/apps/qavrdude.svg # FIXME
   - ( apt-get download avrdude ; dpkg-deb -x avrdude*.deb . ; rm avrdude*deb )
@@ -25,7 +25,7 @@ script:
   - wget -c -nv "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
   - chmod a+x linuxdeployqt-continuous-x86_64.AppImage
   - ./linuxdeployqt-continuous-x86_64.AppImage appdir/usr/share/applications/*.desktop -appimage -executable=appdir/usr/bin/avrdude
-
+  - bash -ex ./build_package.sh # FOR TESTING
 after_success:
   - wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
   - bash upload.sh qavrdude*.AppImage*
