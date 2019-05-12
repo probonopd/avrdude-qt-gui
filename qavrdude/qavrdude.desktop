@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=qavrdude
+Comment=Graphical interface to the Avrdude programmer
+Exec=qavrdude
+Icon=qavrdude
+Type=Application
+Categories=Development;
