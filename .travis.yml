@@ -15,6 +15,7 @@ script:
   - cd qavrdude/
   - qmake CONFIG+=release PREFIX=/usr
   - make -j$(nproc)
+  - find . -type f -executable
   # make INSTALL_ROOT=appdir -j$(nproc) install ; find appdir/ # Needs to be made work instead of the following lines
   - mkdir -p ./appdir/usr/bin ; cp qavrdude ./appdir/usr/bin/ # FIXME
   - mkdir -p ./appdir/usr/share/applications ; cp qavrdude.desktop ./appdir/usr/share/applications # FIXME
